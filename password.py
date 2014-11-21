@@ -57,20 +57,24 @@ def leetSpeakMaker(word, letterDictList):
 def passwordGuesser(name):
 	hits = open(name, 'w')
 	wordList = open('words%i.txt' %(int(name[4])), 'r')
+	wordList = wordList.readlines()
 	# word = "schiller"
 	#variations = []
 	#variations.extend([word, leetSpeakMaker(word, {'e':3}), leetSpeakMaker(word, {'s':5}), leetSpeakMaker(word, {'l':1}), leetSpeakMaker(word, {'t':7}), leetSpeakMaker(word, {'e':3, 's':5}), leetSpeakMaker(word, {'e':3, 'l':1}), leetSpeakMaker(word, {'s':5, 'l':1}), leetSpeakMaker(word, {'s':5, 'e':3, 'l':1}), leetSpeakMaker(word, {'t':7, 'e':3, 'l':1}), leetSpeakMaker(word, {'s':5, 't':7, 'l':1}), leetSpeakMaker(word, {'s':5, 'e':3, 't':7}), leetSpeakMaker(word, {'s':5, 'e':3, 'l':1, 't':7})])
 	#print variations
-	n = 0
 	userNumber = 1
+	sucess = False
 	for user in d:
+		n = 0
 		print "current user number is:", userNumber
 		for word in wordList:
 			if d[user][0] == crypt.crypt(word, d[user][1]):
+				success = True
 				hits.write(word+' '+user+'\n')
 			n+=1
 			if n%1000 == 0:
-				print "Process %i is %f done \n" %(int(name[4]),n/float(670))
+				print "Process %i is %f%% done for user"%(int(name[4]),n/float(670)), userNumber, '\n'
 		
 		userNumber+=1
+	print "process %i success:" %(int(name[4])), success
 main()
