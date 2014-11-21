@@ -18,16 +18,10 @@ def main():
 	#print [list(x) for x in itertools.combinations([], 2)]
 	p = Process(target = passwordGuesser, args = ('hits1.txt',))
 	q = Process(target = passwordGuesser, args = ('hits2.txt',))
-	r = Process(target = passwordGuesser, args = ('hits3.txt',))
-	s = Process(target = passwordGuesser, args = ('hits4.txt',))
 	p.start()
 	q.start()
-	r.start()
-	s.start()
 	p.join()
 	q.join()
-	r.join()
-	s.join()
 	print "done"
 
 def variationCreator():
