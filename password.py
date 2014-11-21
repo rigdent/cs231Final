@@ -16,8 +16,8 @@ def main():
 	setUpDict()	
 	#variationCreator()
 	#print [list(x) for x in itertools.combinations([], 2)]
-	p = Process(target = passwordGuesser, args = ('hits1.txt',))
-	q = Process(target = passwordGuesser, args = ('hits2.txt',))
+	p = Process(target = passwordGuesser, args = ('hits5.txt',))
+	q = Process(target = passwordGuesser, args = ('hits6.txt',))
 	p.start()
 	q.start()
 	p.join()
